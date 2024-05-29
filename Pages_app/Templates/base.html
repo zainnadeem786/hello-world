@@ -1,0 +1,19 @@
+<style>
+    a{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        color: burlywood;
+        text-shadow: 2px black;
+        border: 2px solid;
+        border-radius: 2px;
+        font-size: 15px;
+    }
+</style>
+<header>
+    <a href="{% url 'home' %}">Home</a>|
+
+    <a href="{% url 'about' %}">About</a>
+   </header>
+   
+{%block content %} {%endblock content%}

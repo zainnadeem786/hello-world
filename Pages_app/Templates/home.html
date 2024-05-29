@@ -1,0 +1,287 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    background-color: darkgrey;
+}
+.menu-btn{
+    color: #424144;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+.navbar{
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: rgb(79, 217, 241);
+    box-shadow: 0 0 14px rgba(0,0,0,0.3);
+}
+.navbar .logo{
+    border-bottom: 4px solid #86f6fa;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    margin-left: 20px;
+    color: #424144;
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar .menu li .active{
+    border-bottom: 4px solid #86f6fa;
+}
+.navbar .menu li a i {
+    color: rgb(70, 37, 70);
+}
+.navbar .menu li a:hover{
+    border-bottom: 4px solid #86f6fa;
+
+}
+.content{
+   width: 100%;
+   text-decoration: none;
+   text-align: center;
+   display: block;
+}
+img{
+    border-radius: 10px;
+}
+.pheading{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 50px 0;
+    color: #86f6fa;
+    text-shadow: 3px 3px 3px  black;
+}
+.sec{
+    padding: 10px 5%;
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+}
+.products .card{
+    width: 310px;
+    background-color: rgb(226, 220, 220);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.products .card img{
+    height: 250px;
+    width: 100%;
+}
+.products .card .desc{
+    padding: 5px 20px;
+    opacity: 0.8;
+}
+.products .card .title{
+    font-weight: 900;
+    font-size: 20px;
+    color: black;
+    padding: 0 20px;
+}
+.products .card .box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+}
+.products .card .box .price{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.products .card .box .btn{
+    font-size: 13px;
+    color: red;
+    padding: 10px 18px;
+    font-weight: 900;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.products .card .box .btn:hover{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+footer{
+    background-color: rgb(79, 217, 241);
+    height: 20%;
+}
+footer p{
+    text-align: center;
+    line-height: 10vh;
+}
+footer p a{
+    text-decoration: none;
+    color: rgb(48, 32, 48);
+    font-weight: bold;
+}
+@media(max-width:820px){
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active::before{
+        content: "\f00d";
+
+    }
+    .navbar.menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background-color: white;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: flex;
+        justify-content: center;
+    }
+    .navbar .menu li a {
+        margin: 10px 0;
+        font-size: 25px;
+    }
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="images/Website icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>TopUp Shop پاکِستان  | Top Up Games & App Gift Cards </title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="images/Top-Up_Shop__1_-removebg-preview-removebg-preview.png" alt="" height="50" width="auto"></div>
+        <ul class="menu">
+            <li><a href="" class="active">Home</a></li>
+            <li><a href="">Popular</a></li>
+            <li><a href="https://www.midasbuy.com/midasbuy/pk/buy/pubgm">Direct Top Up</a></li>
+            <li><a href="./Contact Us.html" target="_blank">Contact Us</a></li>
+            <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+        
+    <div class="menu-btn">
+        <i class="fa fa-bars"></i>
+    </div>
+</nav>
+
+    <section class="content">
+       <a href="/index.html"><img src="images/Red and Black Neon Online Store Black Friday Smartphone Banner.png" alt="Logo"></a> 
+    </section>
+    <h1 class="pheading">Most Sale Products</h1>
+    <section class="sec">
+        <div class="products">
+            <!--Product Card Start-->
+            <div class="card">
+                <div class="pic"><img src="images/uc.png" alt=""></div>
+                <div class="desc">Pubg Mobile UC in Cheap Price </div>
+                <div class="title">355 Pubg UC</div>
+                <div class="box">
+                    <div class="price">1160 PKR</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            </div>
+            <!--Product Card End-->
+             <!--Product Card Start-->
+             <div class="card">
+                <div class="pic"><img src="images/COD Coin.png" alt=""></div>
+                <div class="desc">Call of Duty CP Coins in Cheap Price </div>
+                <div class="title">80 CP Coins</div>
+                <div class="box">
+                    <div class="price">200 PKR</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            </div>
+            <!--Product Card End-->
+             <!--Product Card Start-->
+             <div class="card">
+                <div class="pic"><img src="images/Free_Fire_Diamond-removebg-preview.png" alt=""></div>
+                <div class="desc">Free Fire Diamond in Cheap Price </div>
+                <div class="title">140 Diamonds</div>
+                <div class="box">
+                    <div class="price">230 PKR</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            </div>
+            <!--Product Card End-->
+             <!--Product Card Start-->
+             <div class="card">
+                <div class="pic"><img src="images/8_ball_pool_coins-removebg-preview.png" alt=""></div>
+                <div class="desc">8 Ball Pool Coins in Cheap Price </div>
+                <div class="title">20,000 Coins</div>
+                <div class="box">
+                    <div class="price">200 PKR</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            </div>
+            <!--Product Card End-->
+             <!--Product Card Start-->
+             <div class="card">
+                <div class="pic"><img src="images/3 pati Chips.png" alt=""></div>
+                <div class="desc">Teen Pati Chips Pack in Cheap Price </div>
+                <div class="title">3.3 CR Chips</div>
+                <div class="box">
+                    <div class="price">650 PKR</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            </div>
+            <!--Product Card End-->
+             <!--Product Card Start-->
+             <div class="card">
+                <div class="pic"><img src="images/Arena Breakout Bonds.jpg" alt=""></div>
+                <div class="desc">Arena Breakout Bonds in Cheap Price </div>
+                <div class="title">310 Bonds</div>
+                <div class="box">
+                    <div class="price">1500 PKR</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            </div>
+            <!--Product Card End-->
+        </div>
+
+    </section>
+    <footer>
+        <p>CopyRight at <a href="">Top-Up Shop</a></p>
+    </footer>
+    <script>
+        $(".menu-btn").click(function(){
+            $(".navbar .menu").toggleClass("active");
+            $(".menu-btn i").toggleClass("active");
+        });
+    </script>
+
+{% endblock content %}
