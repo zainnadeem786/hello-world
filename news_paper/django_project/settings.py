@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     # 3rd Party
  "crispy_forms", # new
  "crispy_bootstrap5", # new
- #Local
+     #Local
     "accounts", # new
     "pages", # new
+    "articles", # new
 ]
 AUTH_USER_MODEL = "accounts.CustomUser" # new
 
@@ -123,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"] # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -133,4 +135,7 @@ LOGOUT_REDIRECT_URL = "home" # new
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # new
 CRISPY_TEMPLATE_PACK = "bootstrap5" # new
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # new
+TIME_ZONE = "Asia/Karachi" # new
 
