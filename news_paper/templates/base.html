@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,7 +13,9 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'article_new' %}" class="nav-link px-2 link-dark">+ New</a></li>
+                {% endif %}
             </ul>
+            {% if user.is_authenticated %}
             <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ user.username }}
@@ -23,13 +25,12 @@
                     <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
                 </ul>
             </div>
-                {% else %}
-            </ul>
+            {% else %}
             <div class="text-end">
                 <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Log In</a>
                 <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
             </div>
-                {% endif %}
+            {% endif %}
         </div>
     </header>
     <main>
